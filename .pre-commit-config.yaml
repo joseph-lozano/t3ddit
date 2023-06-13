@@ -14,7 +14,7 @@ repos:
       - id: prettier
         name: prettier
         language: system
-        entry: pnpm prettier:check
+        entry: pnpm prettier
         files: \.(ts|js|tsx|jsx|json|cjs|mjs|yaml)
         pass_filenames: false
 
