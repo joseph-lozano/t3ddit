@@ -1,0 +1,40 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+default_stages: [commit, push]
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+      - id: trailing-whitespace
+      - id: check-yaml
+      - id: check-added-large-files
+
+  - repo: local
+    hooks:
+      - id: prettier
+        name: prettier
+        language: system
+        entry: pnpm prettier:check
+        files: \.(ts|js|tsx|jsx|json|cjs|mjs|yaml)
+        pass_filenames: false
+
+      - id: lint
+        name: lint
+        language: system
+        entry: pnpm lint
+        files: \.(ts|js|tsx|jsx|cjs|mjs)
+        pass_filenames: false
+
+      - id: typecheck
+        name: typecheck
+        language: system
+        entry: pnpm tsc
+        files: \.(ts|js|tsx|jsx|cjs|mjs)
+        pass_filenames: false
+
+      - id: build
+        name: build
+        language: system
+        entry: pnpm build
+        files: \.(ts|js|tsx|jsx|cjs|mjs)
+        pass_filenames: false
