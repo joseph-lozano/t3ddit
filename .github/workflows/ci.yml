@@ -1,4 +1,4 @@
-name: t3ddit CI
+name: CI
 
 on:
   pull_request:
